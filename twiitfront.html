@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Twitter Clone</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <h1>Twitter</h1>
+        </div>
+    </nav>
+    <main>
+        <div class="tweet-input">
+            <textarea id="tweetText" placeholder="What's happening?"></textarea>
+            <button id="tweetButton">Tweet</button>
+        </div>
+        <div class="tweet-list" id="tweetList">
+            <!-- Tweets will appear here -->
+        </div>
+    </main>
+    <script src="scripts.js"></script>
+    <script type="text/javascript">
+    document.getElementById('tweetButton').addEventListener('click', function() {
+        var tweetText = document.getElementById('tweetText').value;
+        if (tweetText) {
+            var tweetList = document.getElementById('tweetList');
+            
+            var tweetDiv = document.createElement('div');
+            tweetDiv.className = 'tweet';
+            tweetDiv.innerText = tweetText;
+            
+            tweetList.insertBefore(tweetDiv, tweetList.firstChild);
+            
+            document.getElementById('tweetText').value = '';
+        }
+    });
+</script>
+</body>
+</html>
